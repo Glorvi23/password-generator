@@ -4,7 +4,7 @@ var lowerCase = ["abcdefghijklmnopqrstuvwxyz"];
 var upperCase = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
 var specialCharacters = ["!@#$%^&*()"];
 var numeric = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-
+var passwordFinal = 0;
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -18,7 +18,6 @@ function generatePassword() {
 
   // All The Logic
   var passwordLength = askPasswordLength();
-  var password = [];
   var ifLowerCase = confirm("Do you want lowercase letters in your password?");
   console.log();
   var ifUpperCase = confirm("Do you want uppercase letters in your password?");
@@ -26,8 +25,9 @@ function generatePassword() {
   var ifNumeric = confirm("Do you want numbers in your password?");
 
   //insert values into password function
+  //passwordFinal = insertCriteria();
 
-  return passwordLength;
+  return passwordFinal;
 }
 
 // Add event listener to generate button
@@ -37,14 +37,17 @@ generateBtn.addEventListener("click", writePassword);
 // WHEN I click the button to generate a password
 // THEN I am presented with a series of prompts for password criteria
 function insertCriteria() {
-  //for loop for password length
-  //if statements
-  // for every concatenation, add on to counter
+
+  console.log(passwordLength);
+
+  var password = "";
   var counter = 0;
 
-  for (i = 0; i < passwordLength; i++) {
-    if ()
-  }
+  // for (i = 0; i < passwordLength; i++) {
+  //   if (ifLowerCase){
+  //       password = password + lowerCase[1];
+  //   }
+  // }
 }
 // WHEN prompted for password criteria
 // THEN I select which criteria to include in the password
