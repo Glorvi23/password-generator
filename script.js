@@ -3,7 +3,7 @@ var generateBtn = document.querySelector("#generate");
 var lowerCase = ["abcdefghijklmnopqrstuvwxyz"];
 var upperCase = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
 var specialCharacters = ["!@#$%^&*()"];
-var numeric = [0,1,2,3,4,5,6,7,8,9];
+var numeric = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 // Write password to the #password input
 function writePassword() {
@@ -36,10 +36,15 @@ generateBtn.addEventListener("click", writePassword);
 
 // WHEN I click the button to generate a password
 // THEN I am presented with a series of prompts for password criteria
-function insertCriteria(){
-   //for loop for password length
-   //if statements
-   // for every concatenation, add on to counter
+function insertCriteria() {
+  //for loop for password length
+  //if statements
+  // for every concatenation, add on to counter
+  var counter = 0;
+
+  for (i = 0; i < passwordLength; i++) {
+    if ()
+  }
 }
 // WHEN prompted for password criteria
 // THEN I select which criteria to include in the password
@@ -47,7 +52,7 @@ function insertCriteria(){
 // WHEN prompted for the length of the password
 // THEN I choose a length of at least 8 characters and no more than 128 characters
 
-function askPasswordLength(){
+function askPasswordLength() {
   var passwordLength = prompt("How many characters in your password?");
   return passwordLength;
 }
