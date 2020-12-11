@@ -1,10 +1,14 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var lowerCase = ["abcdefghijklmnopqrstuvwxyz"];
+var lowerCase = "abcdefghijklmnopqrstuvwxyz";
 var upperCase = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
-var specialCharacters = ["!@#$%^&*()"];
+var specialChar = ["!@#$%^&*()"];
 var numeric = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var passwordFinal = 0;
+var ifLowerCase = null;
+var ifUpperCase = null;
+var ifSpecialChar = null;
+var ifNumeric = null
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -18,16 +22,22 @@ function generatePassword() {
 
   // All The Logic
   var passwordLength = askPasswordLength();
-  var ifLowerCase = confirm("Do you want lowercase letters in your password?");
-  console.log();
-  var ifUpperCase = confirm("Do you want uppercase letters in your password?");
-  var ifSpecialChar = confirm("Do you want special characters in your password?");
-  var ifNumeric = confirm("Do you want numbers in your password?");
+  if (passwordLength !== null) {
+    ifLowerCase = confirm("Do you want lowercase letters in your password?");
+    ifUpperCase = confirm("Do you want uppercase letters in your password?");
+    ifSpecialChar = confirm("Do you want special characters in your password?");
+    ifNumeric = confirm("Do you want numbers in your password?");
 
-  //insert values into password function
-  //passwordFinal = insertCriteria();
-
+    //insert values into password function
+    passwordFinal = insertCriteria(passwordLength);
+    
+  }else{
+    passwordFinal = "";
+  }
+  console.log(passwordFinal);
   return passwordFinal;
+
+  
 }
 
 // Add event listener to generate button
@@ -36,27 +46,59 @@ generateBtn.addEventListener("click", writePassword);
 
 // WHEN I click the button to generate a password
 // THEN I am presented with a series of prompts for password criteria
-function insertCriteria() {
+function insertCriteria(length) {
 
-  console.log(passwordLength);
+  console.log(length);
 
   var password = "";
   var counter = 0;
+  var number = 0;
+  var randomNumber = 0;
 
-  // for (i = 0; i < passwordLength; i++) {
-  //   if (ifLowerCase){
-  //       password = password + lowerCase[1];
-  //   }
-  // }
+  // randomNumber = getRandomNumLetters(number);
+  // password = password + lowerCase[randomNumber];
+  // console.log("password: " + password);
+
+  for (i = 0; i < length; i++) {
+    if (ifLowerCase) {
+      randomNumber = getRandomNumLetters(number);
+      password = password + lowerCase[randomNumber];
+      console.log("password " + i + " :" + password);
+    }
+    // if (ifUpperCase) {
+    //   randomNumber = getRandomNumLetters(number);
+    //   password = password + upperCase[randomNumber];
+    // }
+    // if (ifSpecialChar) {
+    //   randomNumber = getRandomNum(number);
+    //   password = password + specialChar[randomNumber];
+    // }
+    // if (ifNumeric) {
+    //   randomNumber = getRandomNum(number);
+    //   password = password + randomNumber;
+    // }
+    // console.log("inloop " + length);
+    // console.log("inloop " + password);
+  }
+  console.log("outloop " + length);
+  return password;
 }
-// WHEN prompted for password criteria
-// THEN I select which criteria to include in the password
 
-// WHEN prompted for the length of the password
-// THEN I choose a length of at least 8 characters and no more than 128 characters
+function getRandomNumLetters(random) {
+
+  random = Math.floor(Math.random() * 24);
+  return random;
+}
+
+function getRandomNum(random) {
+
+  random = Math.floor(Math.random() * 10);
+  return random;
+}
 
 function askPasswordLength() {
   var passwordLength = prompt("How many characters in your password?");
+  
   return passwordLength;
 }
 
